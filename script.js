@@ -125,7 +125,7 @@ const $modal = document.querySelector(".modal");
 
 const $closePhotos = document.querySelector(".modal > button");
 
-
+const $up = document.querySelector(".up");
 
 
 async function getPhotos() {
@@ -224,6 +224,7 @@ async function getPhotos() {
                    $contenedor = document.querySelector(".contenedor");
                    $modal.style.display = "flex";
                    $contenedor.style.display = "flex";
+                   $up.style.display = "none";
 
                    
 
@@ -234,6 +235,7 @@ async function getPhotos() {
                    $closePhotos.addEventListener("click", () => {
                     $modal.style.display = "none";
                     $contDown.appendChild(event.target);
+                    $up.style.display = "flex";
 
                 })
                    
@@ -265,11 +267,11 @@ async function getPhotos() {
 
 window.onscroll = function() {
     if (window.scrollY > 600) {
-        const $up = document.querySelector(".up");
+        
         $up.style.visibility = "visible";
     
     } else if (window.scrollY < 600) {
-        const $up = document.querySelector(".up");
+        
         $up.style.visibility = "hidden";
     }
 };
