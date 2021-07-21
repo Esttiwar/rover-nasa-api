@@ -1,0 +1,334 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+.container-father {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(255, 0, 0, 0.4),rgba(0, 0, 0, 0.1)), url("https://i.postimg.cc/bNf22DTz/background.jpg");
+   
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-attachment: fixed;
+
+}
+
+.container-title {
+    text-align: center;
+    font-family: 'Bungee Inline', cursive;
+}
+
+.container-up {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+h1 {
+    color: #ff0000;
+    text-shadow: 0 0 30px rgb(255, 255, 255);
+    -webkit-text-stroke: 1px black;
+}
+
+.rover {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Bungee Inline', cursive;
+    background-color:rgba(0, 0, 0, 0.4);
+    color: #fba1a1;
+    border: #bb021c solid 2px;
+    width: 250px;
+    height: 130px;
+    box-shadow: 0.5rem 0.5rem 1.5rem 0.5rem rgba(194, 40, 53, 0.5),
+							0 -0.25rem 1.5rem rgb(177, 27, 27) inset,
+							0 0.75rem 0.5rem rgba(155, 34, 34, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgb(170, 47, 47) inset;
+}
+
+.sol {
+    margin: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Bungee Inline', cursive;
+    background-color:rgba(0, 0, 0, 0.4);
+    color: #fba1a1;
+    border: #bb021c  solid 2px;
+    width: 250px;
+    height: 130px;
+    box-shadow: 0.5rem 0.5rem 1.5rem 0.5rem rgba(194, 40, 53, 0.5),
+							0 -0.25rem 1.5rem rgb(177, 27, 27) inset,
+							0 0.75rem 0.5rem rgba(155, 34, 34, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgb(170, 47, 47) inset;
+}
+
+.camera {
+    overflow: hidden;
+    margin: 10px;
+    padding: 0px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Bungee Inline', cursive;
+    background-color:rgba(0, 0, 0, 0.4);
+    color: #fba1a1;
+    border: #bb021c  solid 2px;
+    width: 250px;
+    height: 130px;
+    box-shadow: 0.5rem 0.5rem 1.5rem 0.5rem rgba(194, 40, 53, 0.5),
+							0 -0.25rem 1.5rem rgb(177, 27, 27) inset,
+							0 0.75rem 0.5rem rgba(155, 34, 34, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgb(170, 47, 47) inset;
+}
+
+
+
+select {
+    background: transparent;
+    border: none;
+    font-family: 'Bungee Inline', cursive; 
+    color: red
+}
+select:focus{ outline: none}
+
+.select-camera {
+    width: 200px;
+}
+
+option {
+    background: black;
+    font-family: 'Bungee Inline', cursive;
+    font-weight: normal;
+}
+
+
+.container-down {
+     
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,1);
+    transition: all 500ms ease;
+}
+
+.modal > button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.modal > .contenedor {
+    position: relative;
+}
+
+.modal > .contenedor > img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+
+
+.contenedor {
+    display: none;
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    background: #fff;
+    transition: all 500ms ease;
+}
+
+
+
+.image-rover {
+    cursor: pointer;
+    border-radius: 5%;
+
+    /* outline: 8px ridge rgba(7, 0, 10, 0.6); */
+    width: 40%;
+    height: 40%;
+    margin: 30px 10px;
+}
+
+.container-no-photos {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-no-photos {
+       
+    display: none;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.no-photos {
+    font-family: 'Bungee Inline', cursive;  
+    text-align: center;
+}
+
+
+
+.h3-up {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 25px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 90px;
+    border: solid 1px #7a7a7a;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.5);
+    box-shadow:  5px 5px 0px #5a5a5a; 
+    visibility: hidden; 
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    margin-top: -3px;
+
+}
+
+
+
+
+.footer {
+    text-align: center;
+    font-family: 'Bungee Inline', cursive;
+    font-size: 13px;
+}
+
+
+
+
+@media screen and (max-width: 713px) {
+
+    .contenedor {
+        display: none;
+        width: 500px;
+        height: 300px;
+        margin: auto;
+        background: #fff;
+        transition: all 500ms ease;
+    }
+
+}
+
+
+
+@media screen and (max-width: 547px) {
+
+
+    .rover {
+        margin: 10px;
+        width: 230px;
+        height: 130px;
+        
+    }
+    
+    .sol {
+        margin: 10px;
+        width: 230px;
+        height: 130px;
+        
+       
+    }
+    
+    .camera {
+        margin: 10px;
+        width: 220px;
+        height: 130px; 
+        
+    } 
+    
+}
+
+
+
+@media screen and (max-width: 414px) {
+
+    .container-up {
+        padding-bottom: 0px;
+        margin-bottom: 30px;
+    }
+
+    .rover {
+        width: 230px;
+        height: 75px; 
+        margin-bottom: -30px;
+    }
+
+    .title-rover {
+        margin: 5px 0;
+    }
+    
+    .sol {  
+        width: 230px;
+        height: 75px; 
+        margin: 35px 0 -30px 0;
+    }
+
+    .title-sol {
+        margin: 5px 0;
+    }
+    
+    .camera {
+        width: 220px;
+        height: 75px; 
+        margin: 35px 0 -15px 0;
+        padding: 5px;
+    } 
+
+    .title-camera {
+        margin: 5px 0;
+    }
+
+
+    .no-photos {
+        margin-top: 60px;
+    }
+    
+}

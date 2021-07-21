@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta property="og:image" content="https://i.postimg.cc/htt7WYy2/fondo-Nasa.png" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container-father">
+
+
+        <div class="container-title" id="title">
+            <h1>Pictures of Rovers</h1>
+        </div>
+
+
+
+        <div class="container-up">
+
+            <div class="rover">             
+                <h1 class="title-rover">Rover</h1>
+                <select class="rover-select" name="rover" onchange="solNasa()"> 
+                    <option value="select">Select</option> 
+                </select>
+            </div> 
+
+            <div class="sol">
+                <h1 class="title-sol">Sol</h1>
+                <select class="select-sol" name="sol" onchange="cameraNasa()"> 
+                    <option value="select">Select</option> 
+                </select>
+            </div>
+
+            <div class="camera">
+                <h1 class="title-camera">Camera</h1>
+                <select class="select-camera" name="camera" onchange="getPhotos()"> 
+                    <option value="select">Select</option> 
+                </select>
+            </div>
+
+
+            <div class="container-no-photos">
+                <h1 class="no-photos"></h1>
+                <img class="img-no-photos" src="https://i.postimg.cc/05wwQd7W/no-pictures.png" alt="no photos icon">
+            </div>
+
+        </div>
+
+        
+
+
+        <div class="modal">
+            <button type="button">X</button>
+
+
+            <div class="contenedor">
+                <!-- <img src="#" alt="no-image"> -->
+            </div>
+
+        </div>
+
+
+        <div class="container-down"> 
+        </div>
+
+        <div class="up">
+            <a href="#title"><h3 class="h3-up">^</h3></a>
+        </div>
+
+
+
+        <footer class="footer">
+            <h1>Powered by Jhon Rodríguez using NASA Rover API</h1>
+        </footer>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
