@@ -209,13 +209,11 @@ async function getPhotos() {
 
            let myArray = Array.from($nodeList);
 
-           //let cont = 0;
+           let num = 0;
 
-           console.log("Lista", myArray);
+           //console.log("Lista", myArray);
 
            
-
-
           
            $contDown.addEventListener("click", (event) => {
                if (event.target.tagName.toLowerCase() === "img") {
@@ -225,12 +223,45 @@ async function getPhotos() {
                    $modal.style.display = "flex";
                    $contenedor.style.display = "flex";
                    $up.style.display = "none";
+                   
+                   //console.log(event.target.id);
+
+                   $contenedor.appendChild(event.target);
+                   $modal.appendChild($contenedor);
+
+
+                   // Carrousel -------------------------------------------------------------
+                   const $arrowLeft = document.querySelector(".arrow-left");
+                   const $arrowRight = document.querySelector(".arrow-right");
+
+                   $arrowLeft.addEventListener("click", () => {
+                       num--;
+
+                       if (num<0){
+                           num = myArray.length -1;
+                       }
+                       
+                       //console.log(myArray[num].src); 
+                       $contenedor.appendChild(myArray[num]);
+                       $modal.appendChild($contenedor);  
+                   }) 
+
+                   $arrowRight.addEventListener("click", () => {
+
+                       num++;
+                       if (num>myArray.length -1){
+                        num = 0;
+                       }
+                
+                       //console.log(myArray[num].src);  
+                       $contenedor.appendChild(myArray[num]);
+                       $modal.appendChild($contenedor);
+                    }) 
 
                    
 
-                   $contenedor.appendChild(event.target);
 
-                   $modal.appendChild($contenedor);
+                   //--------------------------------------------------------------------------------
 
                    $closePhotos.addEventListener("click", () => {
                     $modal.style.display = "none";
@@ -239,18 +270,15 @@ async function getPhotos() {
 
                 })
                    
-               }
-            
+               }   
            
           })
 
        }else {
         $contNoPhotos.style.display = "flex";   
 
-
         $noPhotos = document.querySelector(".no-photos");
         $noPhotos.textContent = "There are not photos in this camera";
-
 
         $imgNoPhotos = document.querySelector(".img-no-photos");
         $imgNoPhotos.style.display = "flex";
@@ -267,11 +295,9 @@ async function getPhotos() {
 
 window.onscroll = function() {
     if (window.scrollY > 600) {
-        
         $up.style.visibility = "visible";
     
-    } else if (window.scrollY < 600) {
-        
+    } else if (window.scrollY < 600) {  
         $up.style.visibility = "hidden";
     }
 };
