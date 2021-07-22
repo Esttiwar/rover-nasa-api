@@ -75,13 +75,13 @@ function solNasa(){
         }
 
 
-        console.log($roverSelect.value,":" ,"Días máximos", maxSol)
+        //console.log($roverSelect.value,":" ,"Días máximos", maxSol)
 
     } 
       
     let $solSelect = document.querySelector(".select-sol");
 
-    console.log("Sol seleccionado: ",$solSelect.value)
+    //console.log("Sol seleccionado: ",$solSelect.value)
      
 }
 
@@ -141,7 +141,7 @@ async function getPhotos() {
     
        const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${$roverSelect}/photos?sol=${$selectSol}&camera=${$selectCamera}&api_key=${API_key}`;
     
-       console.log(url);
+       //console.log(url);
 
        const response = await fetch(url);
 
@@ -151,7 +151,7 @@ async function getPhotos() {
 
        const $contDown = document.querySelector(".container-down");
 
-       console.log("fotos: ",photos, photos.length);
+       //console.log("fotos: ",photos, photos.length);
 
 
        //---------------------------------------------------------------
