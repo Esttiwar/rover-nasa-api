@@ -225,9 +225,17 @@ async function getPhotos() {
                    $up.style.display = "none";
                    
                    //console.log(event.target.id);
-
+                   
+                   
                    $contenedor.appendChild(event.target);
                    $modal.appendChild($contenedor);
+
+
+
+                   //To fix
+                   //let $nodeClone= event.target.cloneNode(true);
+                   //$contenedor.appendChild($nodeClone);
+                   //$modal.appendChild($contenedor);
 
 
                    // Carrousel -------------------------------------------------------------
@@ -242,8 +250,17 @@ async function getPhotos() {
                        }
                        
                        //console.log(myArray[num].src); 
-                       $contenedor.appendChild(myArray[num]);
-                       $modal.appendChild($contenedor);  
+
+                       //posiblemente se pueda solucionar creando una copia de myArray[num] 
+                       //y metiendola en el contenedor para que no se vacíe el contenedor principal
+                       
+                       console.log(myArray[num]); 
+                       console.log(num); 
+
+                       let $imageClone= myArray[num].cloneNode(true);
+                       $contenedor.appendChild($imageClone);
+                       $modal.appendChild($contenedor); 
+                       
                    }) 
 
                    $arrowRight.addEventListener("click", () => {
@@ -252,10 +269,17 @@ async function getPhotos() {
                        if (num>myArray.length -1){
                         num = 0;
                        }
+
+                       console.log(myArray);
+                       console.log(num); 
                 
-                       //console.log(myArray[num].src);  
-                       $contenedor.appendChild(myArray[num]);
-                       $modal.appendChild($contenedor);
+
+                       let $imageClone= myArray[num].cloneNode(true);
+                       $contenedor.appendChild($imageClone);
+                       $modal.appendChild($contenedor);  
+                
+
+                      
                     }) 
 
                    
@@ -266,6 +290,7 @@ async function getPhotos() {
                    $closePhotos.addEventListener("click", () => {
                     $modal.style.display = "none";
                     $contDown.appendChild(event.target);
+                
                     $up.style.display = "flex";
 
                 })
@@ -307,3 +332,6 @@ window.onscroll = function() {
 traerRovers();
 
 
+
+
+//Luego de darle un rato a las flechas, al darle click parece como si se le dieran 3 click a la vez
