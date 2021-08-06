@@ -4,6 +4,12 @@ let jsonRovers = {};
 
 let selectedRoverId = null;
 
+let myArray = [];
+
+let num = 0;
+
+const modalImage = document.querySelector(".modal img"); 
+
 
 function getRoverFieldByKey(fieldKey, requiredField) {
     const [key,value] = Object.entries(fieldKey)[0];
@@ -127,6 +133,73 @@ const $closePhotos = document.querySelector(".modal > button");
 
 const $up = document.querySelector(".up");
 
+const $contDown = document.querySelector(".container-down");
+
+$contDown.addEventListener("click", (event) => {
+    if (event.target.tagName.toLowerCase() === "img") {
+
+        
+        $contenedor = document.querySelector(".contenedor");
+        
+        $modal.style.display = "flex";
+        $contenedor.style.display = "flex";
+        $up.style.display = "none";
+        
+        console.log(event.target.src);
+        modalImage.src = event.target.src;
+        num = event.target.id;
+
+    }   
+
+})
+
+// Carrousel -------------------------------------------------------------
+const $arrowLeft = document.querySelector(".arrow-left");
+const $arrowRight = document.querySelector(".arrow-right");
+
+$arrowLeft.addEventListener("click", () => {
+    num--;
+
+    if (num<0){
+        num = myArray.length -1;
+    }
+    
+    //console.log(myArray[num].src); 
+
+    
+    console.log(myArray[num]); 
+    console.log(num); 
+
+    modalImage.src = myArray[num].src;
+
+    
+}) 
+
+$arrowRight.addEventListener("click", () => {
+
+    num++;
+    if (num>myArray.length -1){
+     num = 0;
+    }
+
+    console.log(myArray);
+    console.log(num); 
+
+    modalImage.src = myArray[num].src;
+   
+ }) 
+
+
+//--------------------------------------------------------------------------------
+
+$closePhotos.addEventListener("click", () => {
+ $modal.style.display = "none";
+ //$contDown.appendChild(event.target);
+
+ $up.style.display = "flex";
+
+})
+
 
 async function getPhotos() {
    try {
@@ -149,7 +222,7 @@ async function getPhotos() {
 
        const $contNoPhotos = document.querySelector(".container-no-photos");
 
-       const $contDown = document.querySelector(".container-down");
+       
 
        //console.log("fotos: ",photos, photos.length);
 
@@ -187,6 +260,7 @@ async function getPhotos() {
 
        $contDown.innerHTML = "";
        $contNoPhotos.style.display = "none";
+
        
        if (photos.length > 0) {
 
@@ -207,97 +281,14 @@ async function getPhotos() {
 
            $nodeList = document.querySelectorAll(".container-down img");
 
-           let myArray = Array.from($nodeList);
+           myArray = Array.from($nodeList);
 
-           let num = 0;
+           
 
            //console.log("Lista", myArray);
 
-           
           
-           $contDown.addEventListener("click", (event) => {
-               if (event.target.tagName.toLowerCase() === "img") {
-
-                   
-                   $contenedor = document.querySelector(".contenedor");
-                   $modal.style.display = "flex";
-                   $contenedor.style.display = "flex";
-                   $up.style.display = "none";
-                   
-                   //console.log(event.target.id);
-                   
-                   
-                   $contenedor.appendChild(event.target);
-                   $modal.appendChild($contenedor);
-
-
-
-                   //To fix
-                   //let $nodeClone= event.target.cloneNode(true);
-                   //$contenedor.appendChild($nodeClone);
-                   //$modal.appendChild($contenedor);
-
-
-                   // Carrousel -------------------------------------------------------------
-                   const $arrowLeft = document.querySelector(".arrow-left");
-                   const $arrowRight = document.querySelector(".arrow-right");
-
-                   $arrowLeft.addEventListener("click", () => {
-                       num--;
-
-                       if (num<0){
-                           num = myArray.length -1;
-                       }
-                       
-                       //console.log(myArray[num].src); 
-
-                       //posiblemente se pueda solucionar creando una copia de myArray[num] 
-                       //y metiendola en el contenedor para que no se vacíe el contenedor principal
-                       
-                       console.log(myArray[num]); 
-                       console.log(num); 
-
-                       let $imageClone= myArray[num].cloneNode(true);
-                       $contenedor.appendChild($imageClone);
-                       $modal.appendChild($contenedor); 
-                       
-                   }) 
-
-                   $arrowRight.addEventListener("click", () => {
-
-                       num++;
-                       if (num>myArray.length -1){
-                        num = 0;
-                       }
-
-                       console.log(myArray);
-                       console.log(num); 
-                
-
-                       let $imageClone= myArray[num].cloneNode(true);
-                       $contenedor.appendChild($imageClone);
-                       $modal.appendChild($contenedor);  
-                
-
-                      
-                    }) 
-
-                   
-
-
-                   //--------------------------------------------------------------------------------
-
-                   $closePhotos.addEventListener("click", () => {
-                    $modal.style.display = "none";
-                    $contDown.appendChild(event.target);
-                
-                    $up.style.display = "flex";
-
-                })
-                   
-               }   
            
-          })
 
        }else {
         $contNoPhotos.style.display = "flex";   
