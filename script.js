@@ -130,13 +130,13 @@ async function getPhotos() {
        const $contNoPhotos = document.querySelector(".container-no-photos");
        $contDown.innerHTML = "";
        $contNoPhotos.style.display = "none";
-       
+
        if (photos.length > 0) {     
            
            photos.forEach(({img_src}, index) => {
               $img = document.createElement("img");
               $img.setAttribute("loading","lazy");
-              $img.setAttribute("src", img_src);
+              $img.setAttribute("src", img_src);             
               $img.setAttribute("alt", "camera image");
               $img.className = "image-rover";
               $img.setAttribute("id", index);                       
